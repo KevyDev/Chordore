@@ -1,0 +1,321 @@
+@charset "utf-8";
+:root {
+	--app-max-width: 1000px;
+	--menu-left-width: 200px;
+	--menu-right-width: 280px;
+	--color1: #ffd800; 
+	--color2: #ffe033; 
+	--color-white: #fff;
+	--color-black: #262626;
+	--color-gray: #8E8E8E;
+	--color-gray2: #ededed;
+	--color-gray3: #acacac;
+	--color-gray4: rgb(245, 246, 247);
+	--color-gray5: #aaa;
+	--color-gray6: #909090;
+	--color-gray7: #887788;
+	--color-blue: #07F;
+	--color-blue2: #08F;
+	--color-red: #f00;
+}
+@font-face{font-family: nunito; src: url(../cross/Nunito-Bold.ttf) format("truetype");}
+@font-face{font-family: fornever; src: url(../cross/fornever.otf) format("truetype");}
+* {margin: 0; padding: 0; font-family: nunito; word-wrap:break-word; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;}
+
+textarea {resize: none;}
+button, input[type="submit"] {background: var(--color1); color: var(--color-white); border: none; cursor: pointer;}
+button {display: flex; flex-direction: row; align-items: center; justify-content: center;}
+button span.text {margin-left: 8px;}
+button:hover, input[type="submit"]:hover {background: var(--color2);}
+span.title {font-size: 29px; width: 100%; text-align: center; margin-bottom: 12px;}
+
+header {width: 100%; position: fixed; left: 0; right: 0; background: var(--color-white); border-bottom: 2px solid var(--color-gray2); z-index: 1000;}
+header nav {width: 90%; max-width: var(--app-max-width); display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-left: auto; margin-right: auto;}
+header nav div.logo-container {width: 200px; height: 80px; padding: 24.7px 0;}
+header nav div.logo-container a.logo {display: inline-block;}
+header nav div.logo-container a.logo img {width: 100%; height: auto; cursor: pointer; display: block;}
+header nav ul.inline-menu {display: flex; flex-direction: row; align-items: center;}
+header nav ul.inline-menu a {color: var(--color-gray5); text-decoration: none; margin-left: 22px;}
+header nav ul.inline-menu a:hover {color: var(--color-gray);}
+header nav ul.inline-menu a#header-icon-home {display: none;}
+header nav ul.inline-menu a li {list-style: none;}
+header nav ul.inline-menu a li * {display: block;}
+header nav ul.inline-menu a li span {font-size: 20px; cursor: pointer;}
+header nav ul.inline-menu a li span.selected {color: var(--color-gray6);}
+header nav ul.inline-menu a#header-user-photo {margin-right: 17.5px;}
+header nav ul.inline-menu a#header-user-photo li {width: 32px; height: 32px; background: var(--color1); border-radius: 100%; cursor: pointer; overflow: hidden;}
+header nav ul.inline-menu a#header-user-photo li img {width: 100%; height: 100%;}
+header nav ul.inline-menu a#header-icon-logout {margin-right: 17.5px;}
+header nav ul#header-photo-menu {position: fixed; z-index: 1100; background: var(--color-blue); transform: translateX(50%);}
+body {margin-bottom: 73px;}
+body.bg-gray {background: #f7f7f7;}
+
+main#container {margin-top: 95px; margin-bottom: 18px; margin-left: auto; margin-right: auto; width: 90%; max-width: var(--app-max-width);}
+main#container div#menu-left {width: var(--menu-left-width); padding-right: 10px; float: left; display: block; height: 100%;}
+main#container div#menu-left ul {width: 100%; background: var(--color-white);}
+main#container div#menu-left div.line {width: calc(100% - 30px); height: 2px; margin-left: auto; margin-right: auto; background: var(--color-gray2);}
+main#container div#menu-left ul a {width: 100%; display: block; color: var(--color-gray); text-decoration: none;}
+main#container div#menu-left ul a li {width: 100%; font-size: 16px; list-style: none; display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 15px;}
+main#container div#menu-left ul a li:hover {background: var(--color-gray2);}
+main#container div#menu-left ul a li span.text {margin-left: 6px;}
+main#container div#menu-left ul a li div.container {display: flex; flex-direction: row; align-items: center;}
+main#container div#menu-left ul a li span.num {background: var(--color1); font-size: 12px; display: block; text-align: center; width: 20px; padding: 2px; border-radius: 100%; color: var(--color-white);}
+main#container div#menu-right {width: var(--menu-right-width); padding-left: 10px; float: right; display: block; height: 100%;}
+main#container div#menu-right ul {width: 100%; background: var(--color-white); padding: 10px;}
+main#container div#menu-right ul li {color: var(--color-black); list-style: none;}
+main#container div#sub-container {display: inline-block; width: 100%;}
+main#container.menu-left div#sub-container {width: calc(100% - var(--menu-left-width));}
+main#container.menu-right div#sub-container {width: calc(100% - var(--menu-right-width));}
+main#container.menu-both div#sub-container {width: calc(100% - var(--menu-right-width) - var(--menu-left-width));}
+div#home-notLogued {display: flex; flex-direction: column; max-width: 300px; width: 80%; margin-left: auto; margin-right: auto;}
+div#home-notLogued span.home-text {margin-bottom: 15px; font-size: 16px; color: var(--color-gray); text-align: center; padding: 0 5px;}
+div#home-notLogued img {width: 100%; height: auto; margin-bottom: 20px;}
+div#home-notLogued a.button {width: 100%; margin-left: auto; margin-right: auto; color: var(--color-white); text-decoration: none;}
+div#home-notLogued a.button button {width: 100%; font-size: 15px; padding-top: 10px; padding-bottom: 10px;}
+div#home-notLogued div.user-select-log {display: flex; flex-direction: row; align-items: center; margin-top: 10px; margin-bottom: 10px;}
+div#home-notLogued div.user-select-log span.line {width: 40%; height: 2px; background: var(--color-gray2);}
+div#home-notLogued div.user-select-log span.text {width: 20%; text-align: center; color: var(--color-gray); cursor: default; font-size: 14px;}
+
+div#langs-list {width: 100%; margin-top: 20px; text-align: center; font-size: 15px;}
+div#langs-list span {color: var(--color-gray7);}
+div#langs-list a {color: var(--color-blue); text-decoration: none;}
+div#langs-list a:hover {text-decoration: underline;}
+
+form#form-login-signup {max-width: 300px; width: 90%; display: flex; flex-direction: column; margin-left: auto; margin-right: auto;}
+form#form-login-signup input {width: 100%;}
+form#form-login-signup input[type="text"], form#form-login-signup input[type="password"], form#form-login-signup input[type="email"] {border: 2px solid var(--color-gray2); background: #fbfbfb; font-size: 15px; padding-top: 8px; padding-bottom: 8px; padding-left: 10px; margin-bottom: 10px; color: var(--color-black);}
+form#form-login-signup input[type="text"]:invalid, form#form-login-signup input[type="password"]:invalid, form#form-login-signup input[type="email"]:invalid {border: 2px solid red; box-shadow: none;}
+form#form-login-signup input[type="submit"] {font-size: 15px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;}
+form#form-login-signup textarea {border: 2px solid var(--color-gray2); width: 100%; height: 100px; background: #fbfbfb; font-size: 15px; padding-top: 8px; padding-bottom: 8px; padding-left: 10px; margin-bottom: 10px; color: var(--color-black);}
+form#form-login-signup span.information-text {font-size: 14px; color: var(--color-gray); text-align: left; margin-bottom: 10px; padding: 0 4px;}
+form#form-login-signup span.alert {text-align: center; width: 100%; margin-top: 10px; color: var(--color-gray); font-size: 16px;}
+form#form-login-signup span.alert a {text-decoration: none; color: var(--color-blue); cursor: pointer;}
+form#form-login-signup span.alert a:hover {text-decoration: underline;}
+
+span#error-warn-text {text-align: center; width: 100%; color: var(--color-red); margin-top: 5px; font-size: 16px;}
+
+div.account-user {width: 100%;}
+div.account-user div.header {background: var(--color-white);}
+div.account-user div.header div.user-banner {width: 100%; height: 160px; overflow: hidden; position: relative; background: var(--color1);}
+div.account-user div.header div.user-banner img {height: 100%; width: auto; position: absolute; left: -200%; right: -200%; bottom: -200%; top: -200%; margin: auto;}
+div.account-user div.header div.container {display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 15px 15px 15px 15px;}
+div.account-user div.header div.container div.info {display: flex; flex-direction: row; align-items: center; width: calc(100% - 200px);}
+div.account-user div.header div.container div.info div.names {display: flex; flex-direction: column; margin-left: 7px; width: calc(100% - 84px); font-size: 21px;}
+div.account-user div.header div.container div.info div.names span.name {color: var(--color-black); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+div.account-user div.header div.container div.info div.names span.username {color: var(--color-gray); text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+div.account-user div.header div.container div.info div.user-photo {width: 76px; height: 76px; overflow: hidden; background: var(--color1); border-radius: 100%;}
+div.account-user div.header div.container div.info div.user-photo img {width: 100%; height: 100%;}
+div.account-user div.header div.container div.options {display: flex; flex-direction: row; align-items: center;}
+div.account-user div.header div.container a.button {text-decoration: none; color: var(--color-white);}
+div.account-user div.header div.container button {padding: 14px 16px; font-size: 16px;}
+div.account-user div.header div.container button span {white-space: nowrap;}
+div.account-user div.header div.container .user-interactions-follow button {display: none;}
+div.account-user div.header div.container .user-interactions-follow.active button.active {display: block;}
+div.account-user div.header div.container .user-interactions-follow.inactive button.inactive {display: block;}
+div.account-user div.other-info {width: 100%; padding: 5px 15px 5px 15px; background: var(--color-white); border-bottom: 2px solid var(--color-gray2);}
+div.account-user div.other-info div.info-element {padding: 0px 12px 10px 5px; display: inline-block;}
+div.account-user div.other-info div.info-element span.icon {color: var(--color-gray); font-size: 16px;}
+div.account-user div.other-info div.info-element span.text {color: var(--color-gray); margin-left: 2.5px; font-size: 16px;}
+div.account-user div.other-info div.info-element.info-bio span.text {color: var(--color-black);}
+div.account-user div.other-info div.info-element a {text-decoration: none;}
+div.account-user div.other-info div.info-element a span.text {color: var(--color-blue);}
+div.account-user div.user-interactions {width: 100%; padding: 10px 30px; background: var(--color-white); border-bottom: 2px solid var(--color-gray2); display: flex; flex-direction: row; align-items: center; justify-content: space-between;}
+div.account-user div.user-interactions div, div.account-user div.user-interactions a {padding: 10px 20px; text-decoration: none; color: var(--color-black); border-radius: 10px; cursor: pointer;}
+div.account-user div.user-interactions div:hover, div.account-user div.user-interactions a:hover {background: var(--color-gray2);}
+div.account-user div.user-interactions div button {display: none;}
+div.account-user div.user-interactions div.active button.active {display: block;}
+div.account-user div.user-interactions div.inactive button.inactive {display: block;}
+div.account-user div.user-interactions div.process button.process {display: block;}
+div.account-user div.stadistics {display: flex; flex-direction: row; justify-content: space-around; align-items: top; padding-top: 15px; padding-bottom: 15px; border-bottom: 2px solid var(--color-gray2); background: var(--color-white); margin-bottom: 10px;}
+div.account-user div.stadistics .stadistics-item {max-width: 200px; width: 20%; color: var(--color-black); display: flex; flex-direction: column; align-items: center; text-decoration: none;}
+div.account-user div.stadistics a.stadistics-item {cursor: pointer;}
+div.account-user div.stadistics .stadistics-item span.num {font-size: 17px; width: 100%; text-align: center; color: var(--color-black);} 
+div.account-user div.stadistics .stadistics-item span.text {font-size: 16px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; color: var(--color-gray);}
+div.menu-followers-follows {width: 100%; background: var(--color-white); display: flex; flex-direction: row;}
+div.menu-followers-follows a {font-size: 16px; padding: 10px 0px 15px 0px; width: 50%; text-align: center; text-decoration: none; border-bottom: 2px solid var(--color-gray2); color: var(--color-gray);}
+div.menu-followers-follows a.selected {color: var(--color-black); border-bottom: 2px solid var(--color-gray);}
+div.menu-followers-follows a:hover {border-bottom: 2px solid var(--color-gray);}
+div.account-follows-container {width: 100%; border-bottom: 2px solid var(--color-gray2);}
+div.account-follows-container span.text-information {padding: 16px 0px;}
+div.account-follows-container div.follows-element {width: 100%; padding: 10px 10px 8px 10px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; background: var(--color-white);}
+div.account-follows-container div.follows-element a.user-info {display: flex; flex-direction: row; align-items: center; color: var(--color-black); text-decoration: none;}
+div.account-follows-container div.follows-element a.user-info div.names {width: calc(100% - 60px); padding-left: 8px; display: flex; flex-direction: column; justify-content: center; font-size: 16px;}
+div.account-follows-container div.follows-element a.user-info div.names span {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+div.account-follows-container div.follows-element a.user-info div.names span.name {color: var(--color-black);}
+div.account-follows-container div.follows-element a.user-info div.names span.username {color: var(--color-gray);}
+div.account-follows-container div.follows-element a.user-info img.photo {width: 60px; height: 60px; border-radius: 100%;}
+div.account-follows-container div.follows-element div.user-interactions-follow button {padding: 10px; display: none;}
+div.account-follows-container div.follows-element div.user-interactions-follow.active button.active {display: block;}
+div.account-follows-container div.follows-element div.user-interactions-follow.inactive button.inactive {display: block;}
+
+div.account-edit {width: 100%;}
+div.account-edit div.banner {width: 100%; height: 160px; overflow: hidden; position: relative; background: var(--color1);}
+div.account-edit div.banner img.banner {min-height: 100%; min-width: 100%; position: absolute; left: -200%; right: -200%; bottom: -200%; top: -200%; margin: auto;}
+div.account-edit div.banner span.icon {font-size: 24px; padding: 10px; background: var(--color1); color: var(--color-white); border-radius: 30%; cursor: pointer;}
+div.account-edit div.banner span.icon:hover {background: var(--color2);}
+div.account-edit div.banner div.options {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+div.account-edit div.banner div.options span.icon-upload {display: block;}
+div.account-edit div.banner div.options.selected span.icon-upload {display: none;}
+div.account-edit div.banner div.options span.icon-cross {display: none;}
+div.account-edit div.banner div.options.selected span.icon-cross {display: block;}
+
+div.account-edit div.user-photo {width: 114px; height: 114px; background: var(--color1); border-radius: 100%; overflow: hidden; margin-left: auto; margin-right: auto; margin-top: 10px; position: relative;}
+div.account-edit div.user-photo img.photo {width: auto; height: 100%; position: absolute; margin: auto; left: -100%; right: -100%;}
+div.account-edit div.user-photo span.icon {font-size: 20px; padding: 8px; background: var(--color1); color: var(--color-white); border-radius: 30%; cursor: pointer;}
+div.account-edit div.user-photo span.icon:hover {background: var(--color2);}
+div.account-edit div.user-photo div.options {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+div.account-edit div.user-photo div.options span.icon-upload {display: block;}
+div.account-edit div.user-photo div.options.selected span.icon-upload {display: none;}
+div.account-edit div.user-photo div.options span.icon-cross {display: none;}
+div.account-edit div.user-photo div.options.selected span.icon-cross {display: block;}
+
+div.account-edit form {max-width: 300px; width: 90%; display: flex; flex-direction: column; margin-left: auto; margin-right: auto; margin-top: 15px;}
+div.account-edit form input {width: 100%;}
+div.account-edit form input[type="text"], div.account-edit form input[type="password"], div.account-edit form input[type="email"] {border: 2px solid var(--color-gray2); background: #fbfbfb; font-size: 15px; padding-top: 8px; padding-bottom: 8px; padding-left: 10px; margin-bottom: 10px; color: var(--color-black);}
+div.account-edit form input[type="text"]:invalid, div.account-edit form input[type="password"]:invalid, div.account-edit form input[type="email"]:invalid {border: 2px solid red; box-shadow: none;}
+div.account-edit form input[type="submit"] {font-size: 15px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;}
+div.account-edit form textarea {border: 2px solid var(--color-gray2); width: 100%; height: 100px; background: #fbfbfb; font-size: 15px; padding-top: 8px; padding-bottom: 8px; padding-left: 10px; margin-bottom: 10px; color: var(--color-black);}
+
+div.posts-container {width: 100%;}
+div.posts-container div.post-container.new {transform: scale(0.9); opacity: 0;}
+div.posts-container div.post-container {transition: 1s all ease; opacity: 100; width: 100%; margin-bottom: 10px; margin-top: 10px; padding-bottom: 4px; padding-top: 4px; display: flex; flex-direction: column; border-bottom: 2px solid var(--color-gray2); background: var(--color-white); padding: 15px;}
+div.posts-container div.post-container div.user-info {width: 100%; display: flex; flex-direction: row; align-items: normal;}
+div.posts-container div.post-container div.user-info a {color: var(--color-black); background: var(--color1); border-radius: 100%; text-decoration: none; display: block; width: 60px; height: 60px; overflow: hidden;}
+div.posts-container div.post-container div.user-info a img.photo {display: block; width: 100%; height: 100%;}
+div.posts-container div.post-container div.user-info div.container {width: calc(100% - 60px - 10px - 20px - 10px); margin-left: 8px; display: flex; flex-direction: column; justify-content: center;}
+div.posts-container div.post-container div.user-info div.container span {width: 100%; text-overflow: ellipsis; overflow: hidden; font-size: 17.6px; color: var(--color-black); white-space: nowrap;}
+div.posts-container div.post-container div.user-info div.container span.username {color: var(--color-gray);}
+div.posts-container div.post-container div.user-info span.other-users-actions {margin-left: auto; margin-right: 10px; margin-top: 10px; margin-bottom: auto; font-size: 16px; color: var(--color-gray5); cursor: pointer;}
+div.posts-container div.post-container div.user-info span.other-users-actions:hover {color: var(--color-gray);}
+div.posts-container div.post-container span.post-text {font-size: 16px; padding: 12px 5px 5px 5px; color: var(--color-black);} 
+div.posts-container div.post-container span.post-text a {text-decoration: none;}
+div.posts-container div.post-container div.post-images-container {height: 150px; width: 100%; background: #f7f7f7; overflow: auto; margin: 7px 0px 7px 0px; display: grid; grid-template-rows: 100%;}
+div.posts-container div.post-container div.post-images-container div.container {background: transparent; height: 100%; width: auto; display: flex; margin: auto;}
+div.posts-container div.post-container div.post-images-container div.container img {display: inline-block; height: 100%; width: auto; padding: 0px 5px 0px 5px;}
+div.posts-container div.post-container div.post-info {color: var(--color-gray); padding: 5px 5px 12px 5px; display: flex; align-items: center; width: 100%; overflow: hidden;}
+div.posts-container div.post-container div.post-info span {font-size: 15px;}
+div.posts-container div.post-container div.post-info span.dat-center {margin: 0 6px;}
+div.posts-container div.post-container div.post-info span.privacy {font-size: 14px;}
+div.posts-container div.post-container div.users-actions {width: 100%; padding: 12px 0px 0px 0px; display: flex; flex-direction: row; align-items: center; justify-content: space-around; border-top: 2px solid var(--color-gray2);}
+div.posts-container div.post-container div.users-actions div.container {display: flex; flex-direction: row; align-items: center;}
+div.posts-container div.post-container div.users-actions span.icon {color: var(--color-gray); font-size: 15.7px; cursor: pointer; border-radius: 100%; padding: 7px; transition: .3s all ease;}
+div.posts-container div.post-container div.users-actions span.icon:hover {background: var(--color-gray2);}
+div.posts-container div.post-container div.users-actions span.num {color: var(--color-gray); font-size: 15.7px; padding-right: 7px; padding-left: 3px;}
+div.posts-container div.post-container div.users-actions span.post-interactions-like.selected {color: var(--color-red);}
+
+div.conversations-list div.conversation {width: 100%;}
+div.conversations-list div.conversation {padding: 10px; background: var(--color-white); margin: 10px 0; width: 100%; display: flex; flex-direction: row; align-items: center;}
+div.conversations-list div.conversation a {display: block; width: calc(100% - 20px); display: flex; flex-direction: row; align-items: center;}
+div.conversations-list div.conversation a div.container {width: calc(100% - 60px); padding-left: 10px; color: var(--color-black);}
+div.conversations-list div.conversation a div.container > div {width: 100%;}
+div.conversations-list div.conversation a img {display: block; width: 60px; height: 60px; border-radius: 100%;}
+div.conversations-list div.conversation > div.container {display: flex; flex-direction: row; align-items: center;}
+div.conversations-list div.conversation > div.container span {color: var(--color-gray5); font-size: 16px; margin-right: 10px; padding: 4px; border-radius: 100%; cursor: pointer;}
+div.conversations-list div.conversation > div.container span:hover {color: var(--color-gray);}
+
+div.storys-container {width: 100%; background: var(--color-white); margin-bottom: 15px; padding: 15px 10px; display: flex; flex-direction: row; align-items: center; overflow: auto;}
+div.storys-container a.story {color: var(--color-black); text-decoration: none; width: 100px; margin: 0px 5px;}
+div.storys-container a.story img {width: 60px; height: 60px; margin: auto; display: block; border-radius: 100%;}
+div.storys-container a.story span.username {display: block; font-size: 16px; color: var(--color-gray7); text-align: center; width: 80px; margin: auto; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+form#form-post-compose {padding: 14px; border-bottom: 2px solid var(--color-gray2); background: var(--color-white); width: 100%; display: grid; grid-template-columns: 54px 1fr 100px; grid-template-rows: 54px; grid-template-areas: "photo input button" "photo input button" "photos photos photos" "icons icons icons"; margin-bottom: 10px;}
+form#form-post-compose span#post-compose-cancel-button {font-size: 16px; color: var(--color-gray5); cursor: pointer; display: none; margin: 18px; grid-area: cancel-button;}
+form#form-post-compose span#post-compose-cancel-button:hover {color: var(--color-gray);}
+form#form-post-compose a.user-photo {width: 50px; height: 50px; border-radius: 100%; margin: 2px; display: block; grid-area: photo; background: var(--color1); overflow: hidden;}
+form#form-post-compose a.user-photo img {width: 100%; height: 100%;}
+form#form-post-compose textarea {font-size: 16px; width: 100%; line-height: 22px; height: 52px; overflow: hidden; padding: 15px 15px 15px 6px; margin: 1px; grid-area: input; border: none; color: var(--color-black);}
+form#form-post-compose input[type="submit"] {font-size: 16px; padding: 10px; margin: 2px 2px 2px 0; width: 100px; height: 48px; grid-area: button;}
+form#form-post-compose div#post-compose-img-visor {grid-area: photos; height: auto;}
+form#form-post-compose div#post-compose-img-visor > div  {transform: scale(0); opacity: 0; transition: .2s all ease;}
+form#form-post-compose div#post-compose-img-visor div.img-container {display: inline-block; height: 100px; margin: 10px; transform: scale(1); opacity: 100;}
+form#form-post-compose div#post-compose-img-visor div.img-container.removing {transform: scale(0); opacity: 0;}
+form#form-post-compose div#post-compose-img-visor div.img-container span.post-compose-img-remove {font-size: 10px; cursor: pointer; padding: 6px; margin-left: calc(-100% + 5px); margin-top: 5px; border-radius: 100%; background: var(--color1); color: var(--color-white); position: absolute;}
+form#form-post-compose div#post-compose-img-visor div.img-container img {width: auto; height: 100%; border-radius: 15px;}
+form#form-post-compose div.options {grid-area: icons; display: flex; flex-direction: row; align-items: center; justify-content: left; width: 100%; border-top: 2px solid var(--color-gray2); margin-top: 18px; padding: 12px 0px 5px 0px;}
+form#form-post-compose div.options div.container {width: auto; background: var(--color-gray4); font-size: 15px; color: var(--color-gray); cursor: pointer; padding: 8px 12px 8px 12px; border-radius: 14px; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-right: 12px;}
+form#form-post-compose div.options div.container span.icon {margin-right: 6px;}
+form#form-post-compose div.options div.container:hover {color: var(--color-gray3);}
+form#form-post-compose div.options span#post-compose-characters {margin-left: 5px; color: var(--color-gray);}
+form#form-post-compose div.options div#post-compose-privacy {margin-right: 12px;}
+form#form-post-compose div.options div#post-compose-privacy div.container {display: none; margin: 0;}
+form#form-post-compose div.options div#post-compose-privacy.privacy-public div.container.privacy-public {display: flex;}
+form#form-post-compose div.options div#post-compose-privacy.privacy-friends div.container.privacy-friends {display: flex;}
+form#form-post-compose div.options div#post-compose-privacy.privacy-private div.container.privacy-private {display: flex;}
+form#form-post-compose div.options span#post-compose-characters {width: auto;}
+span#post-compose-button {display: none; position: fixed; z-index: 1100; bottom: 68px; right: 10px; padding: 18px; cursor: pointer; border-radius: 100%; font-size: 16px; color: var(--color-white); background: var(--color1);}
+span#post-compose-button:hover {background: var(--color2);}
+
+div.apps-container {display: grid; grid-template-columns: repeat(5, 20%);}
+div.apps-container div.app-container {width: 100%;}
+div.apps-container div.app-container img {width: 100%;}
+
+
+div#errors-container .error {position: fixed; z-index: 1800; bottom: -100%; left: 0; right: 0; background: #f00; width: 100%; text-align: center; display: inline-block; color: var(--color-white); padding: 2px 0; font-size: 16px; animation: error 10s ease;}
+div#errors-container .error {display: none;}
+span.text-information {font-size: 15px; color: var(--color-gray5); width: 100%; display: block; text-align: center; padding: 8px 0px 8px 0px;}
+
+@keyframes error {
+	0% {bottom: -100%;} 
+	10% {bottom: 0;} 
+	90% {bottom: 0;} 
+	100% {bottom: -100%;}
+}
+
+@media only screen and (min-width: 551px) {
+	header {top: 0;}
+}
+
+@media only screen and (max-width: 550px) {
+	header {bottom: 0; border-bottom: none; border-top: 2px solid var(--color-gray2);}
+	header nav {width: 100%;}
+	header nav div.logo-container {display: none;}
+	header nav ul.inline-menu {width: 100%; padding: 5px 14px; justify-content: space-between;}
+	header nav ul.inline-menu a, header nav ul li img {margin: 0;}
+	header nav ul.inline-menu a#header-icon-home {display: block;}
+	header nav ul.inline-menu a#header-icon-search {display: none;}
+	header nav ul.inline-menu a#header-icon-logout {display: none;}
+	header nav ul.inline-menu li {padding: 8px; margin-top: 5px; margin-bottom: 5px;}
+	header nav ul.inline-menu li span {font-size: 24px;}
+	header nav ul.inline-menu a#header-user-photo {margin: 0px;}
+	header nav ul.inline-menu a#header-user-photo li {width: 35px; height: 35px; padding: 0px;}
+
+	main#container {margin-top: 0px; width: 100%;}
+	main#container div#sub-container {margin-top: 0px; width: 100% !important;}
+	main#container div#menu-right, main#container div#menu-left {display: none;}
+	div#home-notLogued {margin: 0 auto; max-width: 280px; margin-top: 80px;}
+	div#home-notLogued img {height: auto;}
+
+	form#form-login-signup {width: 100%; margin-top: 80px;}
+	
+	div.account-user div.header div.banner {height: 140px;}
+	div.account-user div.header div.container {padding: 15px 10px 15px 10px; flex-direction: column;}
+	div.account-user div.header div.container div.info {width: 100%;}
+	div.account-user div.header div.container div.info div.names {font-size: 20px;}
+	div.account-user div.header div.container div.info img.photo {width: 72px; height: 72px;}
+	div.account-user div.header div.container a.button {width: 100%; margin-top: 15px;}
+	div.account-user div.header div.container button {width: 100%; padding: 11px;}
+	div.account-user div.header div.container .user-interactions-follow > button {margin-top: 15px;}
+	div.account-user div.header div.container .user-interactions-follow {width: 100%;}
+	div.account-user div.stadistics a.stadistics-item span.text {font-size: 13px; width: 65px;}
+
+	form#form-post-compose.shown {display: grid;}
+	form#form-post-compose {display: none; position: fixed; grid-template-areas: "cancel-button cancel-button button" "photo input input" "photo input input" "photos photos photos" "icons icons icons"; z-index: 1200; top: 0; right: 0; left: 0; bottom: 0; padding: 15px 15px 0px 15px; margin-bottom: 0; border-bottom: none; grid-template-columns: 54px 1fr 100px; grid-template-rows: 54px 62px 1fr 140px 68px; align-items: top;}
+	form#form-post-compose div.options {width: 100%; padding: 10px 0px 10px 0px; border-top: 2px solid var(--color-gray2); background: var(--color-white); margin-left: auto; margin-right: auto; position: absolute; bottom: 0; right: 0; left: 0; justify-content: space-between; align-items: center;}
+	form#form-post-compose div.options div.container {padding: 13px 17px 13px 17px;}
+	form#form-post-compose div.options span {margin: 0;}
+	form#form-post-compose div.options span#post-compose-characters {margin-right: 20px;}
+	form#form-post-compose span#post-compose-cancel-button {display: block; width: 16px;}
+	form#form-post-compose textarea {width: 100%; max-height: calc(100% - 12px); overflow: -moz-hidden-unscrollable;}
+	form#form-post-compose a.photo {margin-top: 15px;}
+	form#form-post-compose div#post-compose-img-visor {height: 100%; display: flex; flex-direction: row; overflow: -moz-hidden-unscrollable;}
+	form#form-post-compose div#post-compose-img-visor img {display: inline-block;}
+	span#post-compose-button {display: block;}
+	div#errors-container .error {top: -100%; bottom: unset;}
+	@keyframes error {
+		0% {top: -100%;} 
+		10% {top: 0;} 
+		90% {top: 0;} 
+		100% {top: -100%;}
+	}
+	
+}
